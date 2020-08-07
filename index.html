@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--<div class="jumbotron container-fluid mx-auto mt-2 text-center p-2" style="background-color:#111111 ;color: white;">
+       <h1><strong>Weather Dashboard</strong></h1>
+    </div>--!>
+
+	<nav class="navbar navbar-expand-md bg-dark">
+  	<div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+  		<form class="form-inline" action="">
+		<div class="input-group">
+    		<input style="width: 500px" placeholder="Enter City Name" class="form-control text-uppercase" type="text" onfocus="this.value=''" value=""id="search-city">
+		<div class="input-group-append">
+		<button type="submit" class="btn btn-success btn-xl" id="search-button"><i class="fa fa-search"></i></button>
+		</div>
+		</div>
+  		</form>
+  	</div>
+	</nav>
+	    	    
+            <!--<h2 class="text-primary pt-2" style="color:blue;font-family:verdana;font-size:200%;"><strong>Enter City :</strong></h2>
+            <div class="input-group mb-3 input-group-lg shadow p-0 mb-1 bg-grey">
+            <input type="text" onfocus="this.value=''" value="" class="form-control" id="search-city" aria-label="City Search" aria-describedby="search-button">
+            <div class="input-group-append">
+            <button class=" btn bg-info text-light" id="search-button">Go</button>--!>
+		
+	    <div class="shadow pt-2 pl-4 pr-4 bg-muted container-fluid mx-auto">
+		<p class="list-group list-group-mine flex-md-row" style="color:black;font-family:verdana;font-size:90%;"><button class="btn btn-primary btn-sm mr-2" style="color:black;font-family:verdena;font-size:150%;" type="button" id="clear-history">Clear History</button></p>	
+	    </div>
+
+	    <div class="shadow pt-3 pl-4 pr-4 bg-muted container-fluid mx-auto text-center">
+            <div class="card mx-auto">
+  	    <div class="card bg-warning">
+            <div class="card-body text-center">
+                <h2 class="city-name mb-1 mt-2" style="color:green;font-family:verdana;font-size:180%;" id="current-city"></h2>
+                <p style="color:blue;font-family:verdana;font-size:150%;">Temperature: <span class="current"  id="temperature"></p>	
+	        <p style="color:black;font-family:verdana;font-size:140%;">Humidity: <span class="current" id="humidity"><p>
+                <p style="color:white;font-family:verdana;font-size:140%;">Wind Speed: <span class="current" id="wind-speed"></span></p>
+		<p style="color:red;font-family:verdana;font-size:140%;">UV index: <span class="current bg-danger rounded py-2 px-2 text-white" id="uv-index"></span></p>  
+            </div>
+            </div> 	    
+	    </div>
+            </div>
+   		    		    
+                <div class="shadow pt-2 pl-4 pr-4 bg-muted container-fluid mx-auto text-center" id ="future-weather" style="height: 10px;">
+                    <h2>5-Day Forecast:</h2>
+                        <div class="card-deck shadow-lg  mb-5 bg-white rounded">
+			    <div class="card bg-success">
+			    <div class="card-body text-center">
+                            <p style="color:black;font-family:verdana;font-size:150%;" id="fDate0"></p>
+                            <p id="fImg0"></p>
+                            <p style="color:yellow;font-family:verdana;font-size:125%;">Temp:<span id="fTemp0"></span></p>
+                            <p style="color:white;font-family:verdana;font-size:125%;">Humidity:<span id="fHumidity0"></span></p>
+                            </div>
+			    </div>
+
+			    <div class="card bg-secondary">
+			    <div class="card-body text-center">
+                            <p style="color:black;font-family:verdana;font-size:150%;" id="fDate1"></p>
+                            <p id="fImg1"></p>
+                            <p style="color:yellow;font-family:verdana;font-size:125%;">Temp:<span id="fTemp1"></span></p>
+                            <p style="color:white;font-family:verdana;font-size:125%;">Humidity:<span id="fHumidity1"></span></p>
+			    </div>
+                            </div>
+
+			    <div class="card bg-info">
+			    <div class="card-body text-center">
+                            <p style="color:black;font-family:verdana;font-size:150%;" id="fDate2"></p>
+                            <p id="fImg2"></p>
+                            <p style="color:yellow;font-family:verdana;font-size:125%;">Temp:<span id="fTemp2"></span></p>
+                            <p style="color:white;font-family:verdana;font-size:125%;">Humidity:<span id="fHumidity2"></span></p>
+			    </div>
+                            </div>
+
+                            <div class="card bg-danger">
+			    <div class="card-body text-center">
+                            <p style="color:black;font-family:verdana;font-size:150%;" id="fDate3"></p>
+                            <p id="fImg3"></p>
+                            <p style="color:yellow;font-family:verdana;font-size:125%;">Temp:<span id="fTemp3"></span></p>
+                            <p style="color:white;font-family:verdana;font-size:125%;">Humidity:<span id="fHumidity3"></span></p>
+                            </div>
+		            </div>
+
+                            <div class="card bg-primary">
+			    <div class="card-body text-center">
+                            <p style="color:black;font-family:verdana;font-size:150%;" id="fDate4"></p>
+                            <p id="fImg4"></p>
+                            <p style="color:yellow;font-family:verdana;font-size:125%;">Temp:<span id="fTemp4"></span></p>
+                            <p style="color:white;font-family:verdana;font-size:125%;">Humidity:<span id="fHumidity4"></span></p>
+                            </div>
+                             </div>
+              		 </div>
+		
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
